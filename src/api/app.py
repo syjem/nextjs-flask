@@ -39,5 +39,5 @@ class FavoriteContacts(Resource):
         return {'favorites': [contact.print() for contact in favorites]}, 200
 
 
-api.add_resource(Contacts, '/contacts/', "/contacts/<int:contact_id>")
-api.add_resource(FavoriteContacts, "/contacts/favorites")
+api.add_resource(Contacts, '/api/contacts/', "/api/contacts/<int:contact_id>")
+api.add_resource(FavoriteContacts, "/api/contacts/favorites")
