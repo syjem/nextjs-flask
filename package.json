@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "flask-migrate": "cd src/api && flask db init && flask db migrate && flask db upgrade && cd ../../",
     "flask-seed": "python src/api/seed.py",
     "flask-dev": "flask run",
     "next-dev": "next dev",
