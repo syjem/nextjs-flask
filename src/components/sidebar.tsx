@@ -3,9 +3,10 @@
 import { navLists } from '@/lib/navs';
 import { iconMap } from '@/lib/types';
 import { cn } from '@/lib/utils';
-import { ReceiptText } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Button } from '@/components/ui/button';
+import { PlusCircle } from 'lucide-react';
 
 const Sidebar = ({ className }: { className?: string }) => {
   const pathname = usePathname();
@@ -16,11 +17,10 @@ const Sidebar = ({ className }: { className?: string }) => {
         'flex flex-col gap-1 w-[250px] border-r h-full',
         className
       )}>
-      <div className="py-4 flex items-center justify-center gap-2 border-b shadow-sm cursor-default">
-        <ReceiptText />
-        <h1 className="text-xl font-bold">Contact Manager</h1>
+      <div className="py-8 flex items-center justify-center gap-2 border-b shadow-sm cursor-default">
+        <h1 className="text-xl font-bold">ContactSpace</h1>
       </div>
-      <nav>
+      <nav className="relative h-full">
         {navLists.map((nav) => {
           const Icon = iconMap[nav.icon];
           return (
@@ -45,6 +45,17 @@ const Sidebar = ({ className }: { className?: string }) => {
             </Link>
           );
         })}
+        <Button
+          asChild
+          variant="ghost"
+          className="group absolute bottom-4 py-3 w-full flex justify-start">
+          <Link
+            href="/contacts/new"
+            className="flex items-center gap-2 justify-start text-gray-700 group-hover:text-black group-hover:font-bold">
+            <PlusCircle className="h-5 w-5" />
+            New Contact
+          </Link>
+        </Button>
       </nav>
     </aside>
   );
